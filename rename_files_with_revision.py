@@ -26,12 +26,15 @@ def update_tracking_file(tracking_data, file_path, history):
         }
 
 # Hauptlogik
+script_name = 'rename_files_with_revision.py'  # Name des Skripts, das ausgeschlossen werden soll
 tracking_data = {}
 exclude_dirs = ['.git', '.github', 'venv', '__pycache__']  # Ausschließende Verzeichnisse
 
 for root, dirs, files in os.walk('.', topdown=True):
     dirs[:] = [d for d in dirs if d not in exclude_dirs]  # Ausschluss bestimmter Verzeichnisse
     for name in files:
+        if name == script_name:
+            continue  # Ignoriere das Skript selbst
         file_path = os.path.join(root, name)
         history = get_git_history(file_path)
         update_file_revision(file_path, history)
