@@ -1,5 +1,5 @@
 = Mein AsciiDoc-Dokument
-Autor Name
+Autor Micha
 v1.0, 2023-12-26
 :toc:
 :icons: font
