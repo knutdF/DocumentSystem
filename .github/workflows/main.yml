@@ -31,6 +31,7 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
+        cd DocumentSystem/
         git config --local user.name 'knutdF'
         git config --local user.email 'knut_d_F@web.de'
         git add .
