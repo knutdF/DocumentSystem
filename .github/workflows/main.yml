@@ -28,8 +28,10 @@ jobs:
         # Durchlaufen aller Dateien und Umbenennen
         find . -type f -not -path '*/\.*' | while read file; do
           # Logik zum Aktualisieren des Dateinamens
-          # Beispiel: Anhängen der Version an den Dateinamen
-          mv "$file" "${file%.*}-$version.${file##*.}"
+          echo "Ursprünglicher Dateiname: $file"
+          newname="${file%.*}-$version.${file##*.}"
+          echo "Neuer Dateiname: $newname"
+          mv "$file" "$newname"
         done
 
     - name: Commit and Push Changes
