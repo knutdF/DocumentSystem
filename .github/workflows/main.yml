@@ -23,17 +23,9 @@ jobs:
       run: |
         python script.py
 
-    - name: Debugging Git Repository
-      run: |
-        pwd
-        ls -alh
-        cd DocumentSystem/
-        git status
-
     - name: Commit and Push Changes
-      run: |
-        git config --local user.name 'knutdF'
-        git config --local user.email 'knut_d_F@web.de'
-        git add .
-        git commit -m "Update file names with version"
-        git push
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Update file names with version
+        branch: main
+        file_pattern: .  # Add files/directories to commit
