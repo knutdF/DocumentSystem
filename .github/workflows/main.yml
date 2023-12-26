@@ -23,6 +23,12 @@ jobs:
       run: |
         python script.py
 
+    - name: Debugging Git Repository
+      run: |
+        pwd
+        ls -alh
+        git status
+
     - name: Commit and Push Changes
       run: |
         git config --local user.name 'knutdF'
