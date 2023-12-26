@@ -8,10 +8,12 @@ def get_last_commit_id(file_path):
     except subprocess.CalledProcessError:
         return None
 
+script_name = 'rename_files_with_revision.py'  # Name des Skripts
+
 for root, dirs, files in os.walk('.'):
     for name in files:
-        if name.startswith('.') or root.startswith('./.github/workflows'):
-            continue
+        if name.startswith('.') or root.startswith('./.github/workflows') or name == script_name:
+            continue  # Ignoriere versteckte Dateien, Workflow-Dateien und das Skript selbst
         file_path = os.path.join(root, name)
         commit_id = get_last_commit_id(file_path)
         if commit_id:
