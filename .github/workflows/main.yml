@@ -1,0 +1,36 @@
+name: Update File Names with Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-file-names:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Update File Names
+      run: |
+        #!/bin/bash
+
+        # Beispiel: Lesen der Version aus einer Datei
+        version=$(cat VERSION)
+
+        # Durchlaufen aller Dateien und Umbenennen
+        find . -type f -not -path '*/\.*' | while read file; do
+          # Logik zum Aktualisieren des Dateinamens
+          # Beispiel: Anhängen der Version an den Dateinamen
+          mv "$file" "${file%.*}-$version.${file##*.}"
+        done
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name 'Your Name'
+        git config --global user.email 'your-email@example.com'
+        git add .
+        git commit -m "Update file names with version $version"
+        git push
