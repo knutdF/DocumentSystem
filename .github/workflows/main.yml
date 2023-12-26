@@ -14,30 +14,19 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
     - name: Update File Names
       run: |
-        #!/bin/bash
-
-        # Überprüfen, ob die VERSION-Datei existiert
-        if [ ! -f VERSION ]; then
-            echo "VERSION file not found"
-            exit 1
-        fi
-        version=$(cat VERSION)
-
-        # Durchlaufen aller Dateien und Umbenennen
-        find . -type f -not -path '*/\.*' | while read file; do
-          # Logik zum Aktualisieren des Dateinamens
-          echo "Ursprünglicher Dateiname: $file"
-          newname="${file%.*}-$version.${file##*.}"
-          echo "Neuer Dateiname: $newname"
-          mv "$file" "$newname"
-        done
+        python script.py
 
     - name: Commit and Push Changes
       run: |
         git config --global user.name 'Your Name'
         git config --global user.email 'your-email@example.com'
         git add .
-        git commit -m "Update file names with version $version"
+        git commit -m "Update file names with version"
         git push
