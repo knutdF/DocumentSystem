@@ -12,10 +12,10 @@ def update_file_revision(file_path, history):
     """ Aktualisiert die Revisionsnummer einer Datei, falls notwendig. """
     revision_number = len(history)
     base_name, ext = os.path.splitext(file_path)
-    new_base_name = re.sub(r'Rev\.\d+', '', base_name).rstrip('-')  # Entfernt die alte Revisionsnummer
-    if 'Rev.' not in base_name:
-        new_base_name += f"-Rev.{revision_number}"  # Fügt "Rev." hinzu, wenn nicht vorhanden
-    new_file_name = f"{new_base_name}{ext}"
+    # Entfernt die alte Revisionsnummer, falls vorhanden
+    new_base_name = re.sub(r'-Rev\.\d+', '', base_name)
+    # Fügt das neue Revisionspräfix hinzu
+    new_file_name = f"{new_base_name}-Rev.{revision_number}{ext}"
     if file_path != new_file_name:
         os.rename(file_path, new_file_name)
 
