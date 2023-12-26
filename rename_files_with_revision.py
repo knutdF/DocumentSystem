@@ -1,6 +1,7 @@
 import os
 import subprocess
 import json
+import re
 
 def get_git_history(file_path):
     """ Ermittelt die Git-Historie für eine Datei. """
@@ -10,8 +11,10 @@ def get_git_history(file_path):
 def update_file_revision(file_path, history):
     """ Aktualisiert die Revisionsnummer einer Datei, falls notwendig. """
     revision_number = len(history)
-    new_file_name = f"{file_path}-{revision_number}"
-    if not os.path.exists(new_file_name):
+    base_name, ext = os.path.splitext(file_path)
+    new_base_name = re.sub(r'Rev\.\d+', '', base_name).rstrip('-')  # Entfernt die alte Revisionsnummer
+    new_file_name = f"{new_base_name}-Rev.{revision_number}{ext}"
+    if file_path != new_file_name:
         os.rename(file_path, new_file_name)
 
 def update_tracking_file(tracking_data, file_path, history):
