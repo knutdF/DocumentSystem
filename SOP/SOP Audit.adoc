@@ -1,0 +1,28 @@
+= Mein AsciiDoc-Dokument
+Autor Name
+v1.0, 2023-12-26
+:toc:
+:icons: font
+
+== Einleitung
+
+Willkommen zu meinem *AsciiDoc*-Beispiel! AsciiDoc ist eine leistungsfähige und vielseitige Textformatierungssprache.
+
+== Hauptteil
+
+AsciiDoc ermöglicht es Ihnen, Dokumente mit einfachen Textformatierungen zu erstellen. Hier sind einige Beispiele:
+
+* *Fett* Text
+* _Kursiv_ Text
+* `Monospace` Text
+* Listen:
+** Punkt 1
+** Punkt 2
+
+== Schlussfolgerung
+
+Mit AsciiDoc können Sie komplexe Dokumente mit einfachen Syntax erstellen. Es ist ideal für technische Dokumentationen, Bücher und mehr.
+
+== Kontakt
+
+Bei Fragen, kontaktieren Sie mich unter `email@example.com`.
