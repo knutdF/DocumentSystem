@@ -9,15 +9,12 @@ on:
 jobs:
   update-file-names:
     runs-on: ubuntu-latest
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
       with:
         token: ${{ secrets.VERSIONING }}  # Verwenden Sie hier Ihr PAT
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
