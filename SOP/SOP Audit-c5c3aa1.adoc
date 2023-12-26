@@ -10,6 +10,8 @@ Willkommen zu meinem *AsciiDoc*-Beispiel! AsciiDoc ist eine leistungsfähige und
 
 == Hauptteil
 
+== 2. Hauptteil
+
 AsciiDoc ermöglicht es Ihnen, Dokumente mit einfachen Textformatierungen zu erstellen. Hier sind einige Beispiele:
 
 * *Fett* Text
