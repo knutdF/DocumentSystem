@@ -18,7 +18,11 @@ jobs:
       run: |
         #!/bin/bash
 
-        # Beispiel: Lesen der Version aus einer Datei
+        # Überprüfen, ob die VERSION-Datei existiert
+        if [ ! -f VERSION ]; then
+            echo "VERSION file not found"
+            exit 1
+        fi
         version=$(cat VERSION)
 
         # Durchlaufen aller Dateien und Umbenennen
