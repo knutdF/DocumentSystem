@@ -1,4 +1,4 @@
-name: Update File Names with Version
+name: Update File Names with Revision
 
 on:
   push:
@@ -19,13 +19,13 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Update File Names
+    - name: Update File Names with Revision
       run: |
-        python script.py
+        python rename_files_with_revision.py
 
     - name: Commit and Push Changes
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Update file names with version
+        commit_message: Update file names with revision
         branch: main
         file_pattern: .  # Add files/directories to commit
