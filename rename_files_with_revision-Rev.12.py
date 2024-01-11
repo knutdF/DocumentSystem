@@ -31,7 +31,7 @@ def update_tracking_file(tracking_data, file_path, history):
         }
 
 # Hauptlogik
-script_name = 'rename_files_with_revision.py'  # Name des Skripts, das ausgeschlossen werden soll
+script_name = 'rename_files_with_revision.py', 'json2xml.py'  # Name des Skripts, das ausgeschlossen werden soll
 tracking_data = {}
 exclude_dirs = ['.git', '.github', 'venv', '__pycache__']  # Ausschließende Verzeichnisse
 
