@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Setzen Sie Ihren GitHub Personal Access Token
-GITHUB_TOKEN="IhrGitHubToken"
+# Verwenden Sie das von GitHub Actions bereitgestellte Token
+GITHUB_TOKEN=${GITHUB_TOKEN}
 
 # Setzen Sie den Benutzernamen und den Repository-Namen
-GITHUB_REPO="Benutzername/Repository-Name"
+GITHUB_REPO="knutdF/DocumentSystem"
 
 # Pfad zur JSON-Datei
 JSON_FILE="path/to/your/file.json"
