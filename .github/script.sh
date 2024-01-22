@@ -7,7 +7,7 @@ GITHUB_TOKEN=${GITHUB_TOKEN}
 GITHUB_REPO="knutdF/DocumentSystem"
 
 # Pfad zur JSON-Datei
-JSON_FILE="path/to/your/file.json"
+JSON_FILE=".github/doc.json"
 
 # Lesen Sie Titel und Body aus der JSON-Datei
 ISSUE_TITLE=$(jq -r '.title' "$JSON_FILE")
