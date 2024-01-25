@@ -31,10 +31,10 @@ jobs:
           // Append the issue number and title to the file
           fs.appendFileSync(fileName, `#${issueNumber} - ${issueTitle}\n`);
 
-          // Commit and push changes
-          const exec = require('@actions/exec');
-          await exec.exec('git config --local user.email "action@github.com"');
-          await exec.exec('git config --local user.name "GitHub Action"');
-          await exec.exec('git add ISSUE_LIST.md');
-          await exec.exec(`git commit -m "Update issue list with issue #${issueNumber}"`);
-          await exec.exec('git push');
+          // Use shell commands to commit and push changes
+          const exec = require('child_process').execSync;
+          exec('git config --local user.email "action@github.com"');
+          exec('git config --local user.name "GitHub Action"');
+          exec('git add ISSUE_LIST.md');
+          exec(`git commit -m "Update issue list with issue #${issueNumber}"`);
+          exec('git push');
